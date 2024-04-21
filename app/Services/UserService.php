@@ -46,18 +46,30 @@ class UserService
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the User's Profile
+     * 
+     * @param $request
+     * @param $user
+     * @return User
      */
-    public function update(Request $request, string $id)
+    public function update($request, $user)
     {
-        //
+        $user->update($request->validated());
+
+        return $user;
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Deactivate User Profile.
+     * 
+     * @param $userUuid
      */
-    public function destroy(string $id)
+    public function destroy($userUuid)
     {
-        //
+        $user = User::where('uuid', $userUuid)
+            ->firstOrFail();
+        $user->delete();
+
+        return $userUuid;
     }
 }

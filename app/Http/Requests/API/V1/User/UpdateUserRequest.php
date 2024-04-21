@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\API\V1\User\Auth;
+namespace App\Http\Requests\API\V1\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,9 +27,6 @@ class RegisterRequest extends FormRequest
             'middle_name' => 'nullable|string',
             'gender' => 'required|string',
             'marital_status' => 'required|string',
-            'phone' => 'required|string',
-            'email' => 'required|email',
-            'password' => 'required|string',
         ];
     }
 }
